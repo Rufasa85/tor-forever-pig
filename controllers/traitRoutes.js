@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Pig,Trait} = require('../models');
+const withFarmerAuth = require("../middleware/withFarmerAuth");
 //get all
 router.get("/",(req,res)=>{
     Trait.findAll().then(dbTraits=>{
@@ -24,7 +25,7 @@ router.get("/:id",(req,res)=>{
 })
 
 //create
-router.post("/",(req,res)=>{
+router.post("/",withFarmerAuth,(req,res)=>{
     Trait.create({
         name:req.body.name
     }).then(newTrait=>{
@@ -35,7 +36,7 @@ router.post("/",(req,res)=>{
 })
 
 //edit
-router.put("/:id",(req,res)=>{
+router.put("/:id",withFarmerAuth,(req,res)=>{
     Trait.update({
         name:req.body.name
     },{
@@ -54,7 +55,7 @@ router.put("/:id",(req,res)=>{
 })
 
 //delete
-router.delete("/:id",(req,res)=>{
+router.delete("/:id",withFarmerAuth,(req,res)=>{
     Trait.destroy({
         where:{
             id:req.params.id

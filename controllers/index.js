@@ -13,4 +13,8 @@ router.use("/api/pigs",pigRoutes);
 const traitRoutes = require("./traitRoutes");
 router.use("/api/traits",traitRoutes);
 
+router.get("/readsessions",(req,res)=>{
+    res.json(req.session)
+})
+
 module.exports = router;
