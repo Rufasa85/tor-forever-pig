@@ -1,7 +1,7 @@
 const express = require('express');
 // const session = require('express-session');
 // const exphbs = require('express-handlebars');
-// const allRoutes = require('./controllers');
+const allRoutes = require('./controllers');
 
 const sequelize = require('./config/connection');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -25,8 +25,8 @@ const { Farmer,Adopter,Pig,Trait} = require('./models');
 
 // app.use(session(sess));
 // Sets up the Express app to handle data parsing
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Static directory
 // app.use(express.static('public'));
@@ -35,13 +35,9 @@ const { Farmer,Adopter,Pig,Trait} = require('./models');
 // app.engine('handlebars', hbs.engine);
 // app.set('view engine', 'handlebars');
 
-// app.use('/',allRoutes);
+app.use('/',allRoutes);
 
-app.get("/",(req,res)=>{
-    res.send("forever pig!")
-})
-
-sequelize.sync({ force: true }).then(function() {
+sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
         console.log('App listening on PORT ' + PORT);
     });
