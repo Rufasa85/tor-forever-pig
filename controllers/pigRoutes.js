@@ -43,7 +43,6 @@ router.post("/",withFarmerAuth,(req,res)=>{
 
 //adopt
 router.put("/:id/adopt",withAdopterAuth,(req,res)=>{
-    //TODO: make sure pig isnt adopted
     Pig.update({
         isAdoptable:false,
         AdopterId:req.session.user.id
