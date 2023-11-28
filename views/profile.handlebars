@@ -1,0 +1,39 @@
+<h1>welcome back, {{user.displayName}}!</h1>
+
+{{#if userHasPigs}}
+<h2>Your Pigs</h2>
+<div class="card-box">
+    {{#each user.Pigs}}
+<div class="pig-card">
+    <h3>{{name}}</h3>
+    <img src="{{image}}" alt="pig image">
+    <h4>Farmer: {{Farmer.displayName}}</h4>
+    <div class="traits-box">
+    {{#each Traits}}
+    <span class="trait-span">{{name}}</span>
+    {{/each}}
+    </div>
+    <button class="return-btn" data-pigid="{{id}}">Return me!</button>
+</div>
+{{/each}}
+</div>
+{{/if}}
+<h2>Pigs you can adopt!</h2>
+<div class="card-box">
+    {{#each pigs}}
+<div class="pig-card">
+    <h3>{{name}}</h3>
+    <img src="{{image}}" alt="pig image">
+    <h4>Farmer: {{Farmer.displayName}}</h4>
+    <h4>{{distance}} miles from you!</h4>
+    <div class="traits-box">
+    {{#each Traits}}
+    <span class="trait-span">{{name}}</span>
+    {{/each}}
+    </div>
+    <button class="adopt-btn"  data-pigid="{{id}}">Adopt me!</button>
+</div>
+{{/each}}
+</div>
+
+<script src="/js/profile.js"></script>

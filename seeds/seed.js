@@ -37,6 +37,7 @@ const pigData = [
     {
         name:"Wilbur",
         image:"https://www.thesprucepets.com/thmb/8k3tUWIxVq7kitw_u7F7H0bgR4k=/5317x0/filters:no_upscale():strip_icc()/piglet-56158469-5c8ba7dc46e0fb0001770031.jpg",
+        isAdoptable:false,
         FarmerId:1,
         AdopterId:2
     },

@@ -19,7 +19,7 @@ if(loginBtn){
             }
         }).then(res=>{
             if(res.ok){
-               location.href = "/"
+               location.href = "/profile"
             } else {
                 alert("trumpet sound")
             }
@@ -51,7 +51,7 @@ if(loginBtn){
             }
         }).then(res=>{
             if(res.ok){
-               location.href = "/"
+               location.href = "/profile"
             } else {
                 alert("trumpet sound")
             }
