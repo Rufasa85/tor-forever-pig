@@ -1,0 +1,21 @@
+<h1>Forever Pig</h1>
+<p>Copy text here, blah blah blah, teacup piglets aren't real, blah blah, city life with pig etc.</p>
+<div class="card-box">
+    {{#each pigs}}
+<div class="pig-card">
+    <h3>{{name}}</h3>
+    <img src="{{image}}" alt="pig image">
+    <h4>Farmer: {{Farmer.displayName}}</h4>
+    {{!-- TODO: if to check if logged in --}}
+    {{#if ../loggedIn}}
+    <h4>{{distance}} miles from you!</h4>
+    {{/if}}
+    <div class="traits-box">
+    {{#each Traits}}
+    <span class="trait-span">{{name}}</span>
+    {{/each}}
+    </div>
+</div>
+{{/each}}
+</div>
+    

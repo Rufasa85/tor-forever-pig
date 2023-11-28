@@ -76,8 +76,8 @@ const seedMe = async()=>{
     });
     const dbPigs = await Pig.bulkCreate(pigData);
     const dbTraits = await Trait.bulkCreate(traitData);
-   await dbPigs[0].addTrait(1);
-   await dbPigs[1].addTraits([1,3]);
+    await dbPigs[0].addTrait(1);
+    await dbPigs[1].addTraits([1,3]);
     await dbTraits[1].addPigs([1,2])
     process.exit(0)
 }

@@ -1,0 +1,22 @@
+{{#if isLogin}}
+<h1>Login</h1>
+{{else}}
+<h1>Signup</h1>
+{{/if}}
+
+<form id="auth-form">
+    <input type="text" id="email-input" placeholder="email">
+    <input type="password" id="password-input">
+    {{#unless isLogin}}
+    <input type="text" id="displayName-input" placeholder="display name">
+    <input type="text" id="lattitude-input" placeholder="latitude">
+    <input type="text" id="longitude-input" placeholder="longitude">
+    <button id="location-btn">Use Current Location</button>
+    <button id="signup-btn">Signup</button>
+    {{/unless}}
+    {{#if isLogin}}
+    <button id="login-btn">Login</button>
+    {{/if}}
+</form>
+
+<script src="/js/auth.js"></script>

@@ -13,6 +13,9 @@ router.use("/api/pigs",pigRoutes);
 const traitRoutes = require("./traitRoutes");
 router.use("/api/traits",traitRoutes);
 
+const htmlRoutes = require("./htmlRoutes");
+router.use("/",htmlRoutes);
+
 router.get("/readsessions",(req,res)=>{
     res.json(req.session)
 })

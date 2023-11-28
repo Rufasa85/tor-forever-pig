@@ -27,6 +27,7 @@ router.get("/:id",(req,res)=>{
 
 //create
 router.post("/",(req,res)=>{
+    //TODO: make sure user isnt logged in 
     Adopter.create({
         email:req.body.email,
         displayName:req.body.displayName,
@@ -36,14 +37,16 @@ router.post("/",(req,res)=>{
     }).then(newAdopter=>{
         req.session.user={
             id:newAdopter.id,
-            isFarmer:farmer
+            isFarmer:false
         }
         res.json(newAdopter)
     }).catch(err=>{
+        console.log(err);
         res.status(500).json({msg:"womp womp womp",err})
     })
 })
 router.post("/login",(req,res)=>{
+    //TODO: make sure user isnt logged in
     Adopter.findOne({
         where:{
             email:req.body.email

@@ -26,6 +26,7 @@ router.get("/:id",(req,res)=>{
 
 //create
 router.post("/",(req,res)=>{
+    //TODO: ensure user isnt logged in
     Farmer.create({
         email:req.body.email,
         displayName:req.body.displayName,
@@ -44,6 +45,7 @@ router.post("/",(req,res)=>{
 })
 
 router.post("/login",(req,res)=>{
+    //TODO: ensure user isnt logged in
     Farmer.findOne({
        where:{
         email:req.body.email
